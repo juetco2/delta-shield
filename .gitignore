@@ -1,0 +1,7 @@
+# never commit keys or packaged builds
+.env
+.env.*
+!/.env.example
+*.zip
+*.pem
+node_modules/

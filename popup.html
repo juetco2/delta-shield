@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DeltaShield</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 320px;
+      background: #0b0f19;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 16px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #1f2937;
+      margin-bottom: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #ffffff;
+    }
+    .brand span { color: #06b6d4; }
+    .status-badge {
+      font-size: 11px;
+      color: #10b981;
+      font-weight: 600;
+    }
+    .stats-card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      padding: 4px 0;
+      color: #94a3b8;
+    }
+    .stat-row strong {
+      color: #f1f5f9;
+      font-family: ui-monospace, monospace;
+    }
+    .btn-dashboard {
+      display: block;
+      width: 100%;
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-dashboard:hover { background: #1d4ed8; }
+    .recent-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .recent-list {
+      max-height: 120px;
+      overflow-y: auto;
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+    .recent-item {
+      padding: 6px 0;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .recent-url {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">
+      <svg width="18" height="18" fill="none" stroke="#06b6d4" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      Delta<span>Shield</span>
+    </div>
+    <div class="status-badge" id="protection-status">Active</div>
+  </div>
+
+  <div class="stats-card">
+    <div class="stat-row">
+      <span>VirusTotal Real-time Engine</span>
+      <strong id="api-status">Connected</strong>
+    </div>
+    <div class="stat-row">
+      <span>Web & Download Protection</span>
+      <strong>Enabled</strong>
+    </div>
+    <div class="stat-row">
+      <span>Threat Detections</span>
+      <strong id="threats-count" style="color: #ef4444;">0</strong>
+    </div>
+  </div>
+
+  <div class="recent-title">Recent Scans</div>
+  <div class="recent-list" id="recent-scans">
+    <div style="color: #64748b; text-align: center; padding: 12px 0;">No active scans yet</div>
+  </div>
+
+  <button class="btn-dashboard" id="open-dashboard">Open Threat Operations Dashboard</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
